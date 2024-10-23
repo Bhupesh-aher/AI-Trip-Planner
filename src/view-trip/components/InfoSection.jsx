@@ -9,7 +9,7 @@ const InfoSection = ({trip}) => {
   
 
   const imageUrl = useFetchImage(trip?.userSelection?.location);
-  console.log(imageUrl);
+ 
 
   const image = imageUrl ? imageUrl : "/placeholder.jpg";
 

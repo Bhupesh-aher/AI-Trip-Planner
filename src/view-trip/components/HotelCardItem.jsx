@@ -7,7 +7,7 @@ import useFetchImage from '@/Hook/useFetchImage';
 const HotelCardItem = ({hotel}) => {
 
   const imageUrl = useFetchImage(hotel?.name);
-  console.log(imageUrl);
+  
 
   const image = imageUrl ? imageUrl : "/placeholder.jpg";
 

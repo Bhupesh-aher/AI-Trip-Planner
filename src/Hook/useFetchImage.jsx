@@ -12,7 +12,7 @@ const useFetchImage = (name) => {
         // Step 1: Search for the place to get the photo reference
         const response = await axios.get(`https://maps.gomaps.pro/maps/api/place/textsearch/json?query=${name}&key=${import.meta.env.VITE_GOOGLE_PLACE}`);
         const data = response.data;
-        console.log(data);
+        
         
 
         if (data.results && data.results.length > 0) {

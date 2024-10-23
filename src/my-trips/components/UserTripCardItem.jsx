@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const UserTripCardItem = ({trip}) => {
 
   const imageUrl = useFetchImage(trip?.userSelection?.location);
-  console.log(imageUrl);
+  
 
   const image = imageUrl ? imageUrl : "/placeholder.jpg";
 
