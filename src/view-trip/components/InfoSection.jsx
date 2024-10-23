@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import useFetchImage from '@/Hook/useFetchImage';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { IoIosSend } from "react-icons/io";
@@ -7,41 +8,16 @@ const InfoSection = ({trip}) => {
   
   
 
-  const [images, setImages] = useState([]);
+  const imageUrl = useFetchImage(trip?.userSelection?.location);
+  console.log(imageUrl);
 
-  const API_URL = 'https://api.unsplash.com/search/photos';
-  const IMAGES_PER_PAGE = 10;
-
-  useEffect(() => {
-    const getImages = async () => {
-      try{
-        //  const {data} = await axios.get(`${API_URL}?query=${trip?.userSelection?.location}&page=1&per_page=${IMAGES_PER_PAGE}&client_id=${import.meta.env.VITE_API_KEY}`)
-        const {data} = await axios.get(`${API_URL}?query=${trip?.userSelection?.location}&page=1&per_page=${IMAGES_PER_PAGE}&order_by=latest&client_id=${import.meta.env.VITE_API_KEY}`)
-
-        
-         setImages(data.results)
-      }
-      catch(error){
-        
-        setImages([])
-        
-      }
-      
-    }
-
-     getImages();
-  }, [trip]);
-  
-  
-  
-  
-  const imageUrl = images.length > 4 ? images[4]?.urls?.regular : '/placeholder.jpg';
+  const image = imageUrl ? imageUrl : "/placeholder.jpg";
 
   
   return (
     <div>
         {/* <img src={"/placeholder.jpg"} className='h-[340px] w-full object-cover rounded-xl' /> */}
-        <img src={imageUrl} className='h-[400px] w-[1000px] object-cover rounded-xl' alt={trip?.userSelection?.location || 'Placeholder image'}/>
+        <img src={image} className='h-[500px] w-[1200px] object-cover rounded-xl' alt={trip?.userSelection?.location || 'Placeholder image'}/>
 
       <div className='flex justify-between items-center'>
       
