@@ -12,7 +12,8 @@ const Hero = () => {
         <Link to={"/create-trip"}>
         <Button>Get Started, It's Free</Button>
         </Link>
-        <img src="https://aitrip.tubeguruji.com/landing.png" className='-mt-20'/>
+        <img src="A futuristic AI-powe.png" className='-mt-10'/>
+        {/* <img src="https://aitrip.tubeguruji.com/landing.png" className='-mt-20'/> */}
     </div>
   )
 }
